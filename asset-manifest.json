@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.js": "/lol_report/static/js/main.5777c6e2.chunk.js",
-    "main.js.map": "/lol_report/static/js/main.5777c6e2.chunk.js.map",
+    "main.js": "/lol_report/static/js/main.f7e5931f.chunk.js",
+    "main.js.map": "/lol_report/static/js/main.f7e5931f.chunk.js.map",
     "runtime-main.js": "/lol_report/static/js/runtime-main.f75abdb2.js",
     "runtime-main.js.map": "/lol_report/static/js/runtime-main.f75abdb2.js.map",
-    "static/js/2.fde47c2d.chunk.js": "/lol_report/static/js/2.fde47c2d.chunk.js",
-    "static/js/2.fde47c2d.chunk.js.map": "/lol_report/static/js/2.fde47c2d.chunk.js.map",
+    "static/js/2.3decdda7.chunk.js": "/lol_report/static/js/2.3decdda7.chunk.js",
+    "static/js/2.3decdda7.chunk.js.map": "/lol_report/static/js/2.3decdda7.chunk.js.map",
     "index.html": "/lol_report/index.html",
-    "static/js/2.fde47c2d.chunk.js.LICENSE.txt": "/lol_report/static/js/2.fde47c2d.chunk.js.LICENSE.txt"
+    "static/js/2.3decdda7.chunk.js.LICENSE.txt": "/lol_report/static/js/2.3decdda7.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.f75abdb2.js",
-    "static/js/2.fde47c2d.chunk.js",
-    "static/js/main.5777c6e2.chunk.js"
+    "static/js/2.3decdda7.chunk.js",
+    "static/js/main.f7e5931f.chunk.js"
   ]
 }
