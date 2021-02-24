@@ -4,7 +4,9 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      Report for API~!
+      LOL Report
+    <input type="text" name="text1"/>
+    <input type="button" value="BTN1"/>
     </div>
   );
 }
