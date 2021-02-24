@@ -1,24 +1,39 @@
 import React from "react";
 import axios from "axios";
+import Summoner from "./Summoner";
+import Search from "./Search";
+const SUMMONER_NAME = "판다삐"
+const API_KEY = "RGAPI-190a6f56-aea5-4b1b-8fbf-64d957731d7e";
+
 class App extends React.Component {
   state = {
     isLoading:true,
-    summoner:[]
+    summoner:{}
   };
   getSummonerInfo = async () =>{
-    const summoner = await axios.get("https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/판다삐?api_key=RGAPI-d81d907d-179a-4725-9dc3-2c53531a1af1");
+    const URL = `/lol/summoner/v4/summoners/by-name/${SUMMONER_NAME}?api_key=${API_KEY}`;
+    const summoner = await axios.get(URL,);
     console.log(summoner);
+    this.setState({summoner:summoner.data,isLoading: false})
   };
   componentDidMount(){
-    setTimeout(() =>{
-      this.setState({isLoading : false})
-    },6000);
     this.getSummonerInfo();
   }
   render() {
-    const { isLoading } = this.state;
+    const { isLoading,summoner } = this.state;
     return (
-      <div>{isLoading ? "Loading..." : "We are ready"}</div>
+      <div>{isLoading 
+          ? "Loading..." 
+          : <Summoner  
+            accountId={summoner.accountId}
+            id={summoner.id}
+            name={summoner.name}
+            profileIconId={summoner.profileIconId}
+            puuid={summoner.puuid}
+            revisionDate={summoner.revisionDate}
+            summonerLevel={summoner.summonerLevel}
+          />}
+          </div>
     );
   }
 }
