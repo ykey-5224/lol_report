@@ -4,7 +4,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      Report for API
+      Report for API~!
     </div>
   );
 }
