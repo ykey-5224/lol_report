@@ -1,4 +1,35 @@
-import React from "react";
+import React, {useEffect} from "react";
+import axios from "axios";
+
+const App = () => {
+  useEffect(() => {
+    events();
+  }, []);
+  const [state, setstate] = React.useState([]);
+  const events = () => {
+    axios
+      .get("http://localhost:3001/api")
+      .then(res => res.json())
+      .then(response => setstate(response.data))
+      .catch(err => console.log(err));
+  };
+
+  return (
+    <div>
+      {state.map(list => {
+        return <li>{list.id}</li>;
+      })}
+    </div>
+  );
+};
+
+export default App;
+
+
+
+
+
+/*import React from "react";
 import axios from "axios";
 import Summoner from "./Summoner";
 import Search from "./Search";
@@ -38,3 +69,5 @@ class App extends React.Component {
   }
 }
 export default App;
+
+*/
