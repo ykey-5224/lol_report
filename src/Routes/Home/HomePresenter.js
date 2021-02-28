@@ -5,28 +5,32 @@ import Helmet from "react-helmet";
 import Section from "../../Components/Section";
 
 const Container = styled.div`
-  padding: 20px;
+  padding: 10px;
 `;
 
-const HomePresenter = ({ name }) => (
+const HomePresenter = ({ name,summonerLevel,revisionDate }) => (
   <>
     <Helmet>
       <title>닷지할까</title>
     </Helmet>
       <Container>
-        <Helmet>
+        {/* <Helmet>
           <title></title>
         </Helmet>
         <Section title="닷지할까">
-            소환사명 : {name}
-          </Section>
+            <div>소환사명 : {name}</div>
+            <div>소환사레벨 : {summonerLevel}</div>
+            <div>최근접속일 : {revisionDate}</div>
+          </Section> */}
+          
       </Container>
-
   </>
 );
 
 HomePresenter.propTypes = {
   nowPlaying: PropTypes.string,
+  summonerLevel:PropTypes.number,
+  revisionDate:PropTypes.string
 };
 
 export default HomePresenter;
