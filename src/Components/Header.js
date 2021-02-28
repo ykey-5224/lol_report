@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link, withRouter } from "react-router-dom";
 
 // export default withRouter(({ history }) => (
@@ -10,28 +10,33 @@ import { Link, withRouter } from "react-router-dom";
 // ));
 
 
-class Header extends Component {
+class Header extends React.Component {
     state={
         summonerName:''
     }
     inputChange = (e) => {
         this.setState({
-          id: e.target.value
+            summonerName: e.target.value
         });
     }
     searchClick = () => {
         console.log(`summonerName는:${this.state.summonerName}`);
+        //history.pushState(`/#/search/${this.state.summonerName}`)
+        this.props.history.push(`/search/${this.state.summonerName}`);
+        console.log(this.props);
     }
     render() {
+        const { summonerName } = this.state;
+        const { inputChange, searchClick } = this;
       return (
-        <div className="App">
+        <div className="Header">
           <header className="App-header">
-            <input type="text" placeholder="소환사이름" onChange={inputChange} />
-            <button onClick={searchClick}>로그인</button>
+            <input type="text" value={summonerName} placeholder="소환사이름" onChange={inputChange} />
+            <button onClick={searchClick}>Search</button>
           </header>
         </div>
       );
     }
   }
   
-  export default Header;
+  export default withRouter(Header);
