@@ -8,23 +8,29 @@ export default class extends React.Component {
     summonerLevel:null,
     revisionDate:null
   };
+   getData =async () =>{
+    const {
+      match: {
+        params: { name:summonerName }
+      }
+    } = this.props;
+  try {
+    const {
+      data: { name,summonerLevel,revisionDate}
+    } = await lolApi.search(summonerName);
+    this.setState({
+      name,summonerLevel,revisionDate
+    });
+  } catch {
+  } finally {
+  }
+  }
 
-  async componentDidMount() {
-     const {
-        match: {
-          params: { name:summonerName }
-        }
-      } = this.props;
-    try {
-      const {
-        data: { name,summonerLevel,revisionDate}
-      } = await lolApi.search(summonerName);
-      this.setState({
-        name,summonerLevel,revisionDate
-      });
-    } catch {
-    } finally {
-    }
+  componentDidMount() {
+    this.getData();
+  }
+  componentDidUpdate(){
+    this.getData();
   }
 
   render() {
