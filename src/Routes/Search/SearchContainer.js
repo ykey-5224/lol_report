@@ -1,50 +1,26 @@
 import React from "react";
 import SearchPresenter from "./SearchPresenter";
 import { lolApi } from "../../api";
-
+import { Link, withRouter } from "react-router-dom";
 export default class extends React.Component {
-  state = {
-    name:null,
-    summonerLevel:null,
-    revisionDate:null
-  };
-   getData =async () =>{
-    const {
-      match: {
-        params: { name:summonerName }
-      }
-    } = this.props;
-  try {
-    const {
-      data: { name,summonerLevel,revisionDate}
-    } = await lolApi.search(summonerName);
-    this.setState({
-      name,summonerLevel,revisionDate
-    });
-  } catch {
-  } finally {
+  state={
+    summonerName:''
   }
-  }
-
   componentDidMount() {
-    this.getData();
   }
-  componentDidUpdate(){
-    this.getData();
-  }
-
+  inputChange = (e) => {
+    this.setState({
+        summonerName: e.target.value
+    });
+}
   render() {
-    const { name,summonerLevel,revisionDate} = this.state;
-    const retDate = new Date(revisionDate);
-    const dateString = retDate.getFullYear()+"."+(retDate.getMonth()+1)+"."+retDate.getDate()+"  ";
-    const timeSting = retDate.getHours()+":"+retDate.getMinutes();
-
-    return (
-      <SearchPresenter
-      name={name}
-      summonerLevel={summonerLevel}
-      revisionDate = {dateString+timeSting}
-      />
-    );
+    const { summonerName } = this.state;
+    const { inputChange } = this;
+  return (
+    <SearchPresenter
+      summonerName={summonerName}
+      inputChange = {inputChange}
+    />
+  );
   }
 }

@@ -7,7 +7,8 @@ import {
 } from "react-router-dom";
 import Home from "../Routes/Home";
 import Search from "../Routes/Search";
-import Header from "../Components/Header";
+import SearchResult from "../Routes/SearchResult";
+import Header from "../Routes/Header";
 
 export default () => (
   <Router>
@@ -16,7 +17,7 @@ export default () => (
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/search" exact component={Search} />
-        <Route path="/search/:name" component={Search} />
+        <Route path="/search/:name" component={SearchResult} />
         <Redirect from="*" to="/" />
       </Switch>
     </>

@@ -3,27 +3,39 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import Helmet from "react-helmet";
 import Section from "../../Components/Section";
+import Search from "../Search";
 
-const Container = styled.div`
-  padding: 10px;
+const HomeDiv = styled.div`
+`;
+
+const HomeBody = styled.div`
+  border: 1px solid black;
+  height: 200px;
+  text-align: center;
+  line-height: 200px;
+  margin-top : 10px;
+`;
+const SearchDiv = styled.div`
+  border: 1px solid black;
+  width: 100 px;
+  height: 800px;
+  diplay : flex;
+  justify-content: center;
+  align-items: center;
+  margin-top : 10px
 `;
 
 const HomePresenter = ({ name,summonerLevel,revisionDate }) => (
   <>
     <Helmet>
-      <title>닷지할까</title>
+      <title>홈화면이에요</title>
     </Helmet>
-      <Container>
-        {/* <Helmet>
-          <title></title>
-        </Helmet>
-        <Section title="닷지할까">
-            <div>소환사명 : {name}</div>
-            <div>소환사레벨 : {summonerLevel}</div>
-            <div>최근접속일 : {revisionDate}</div>
-          </Section> */}
-          
-      </Container>
+      <HomeDiv>
+      <HomeBody> 홈화면의 LOGO </HomeBody>
+      <SearchDiv> 검색 영역
+          <Search/>
+      </SearchDiv>
+      </HomeDiv>
   </>
 );
 

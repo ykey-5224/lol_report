@@ -16,11 +16,13 @@ class Header extends React.Component {
       return (
         <div className="Header">
           <header className="App-header">
+          </header>
+          <div> 헤더화면이에용
             <input type="text" value={summonerName} placeholder="소환사이름" onChange={inputChange} />
             <Link to={`/search/${this.state.summonerName}`}>
                 <button>Search</button>
             </Link>
-          </header>
+            </div>
         </div>
       );
     }

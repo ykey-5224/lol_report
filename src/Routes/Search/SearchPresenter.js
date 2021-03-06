@@ -2,23 +2,20 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import Helmet from "react-helmet";
-import Section from "../../Components/Section";
+import { Link, withRouter } from "react-router-dom";
 
 const Container = styled.div`
   padding: 20px;
+  display : inline-block;
 `;
 
-const SearchPresenter = ({ name,summonerLevel,revisionDate }) => (
+const SearchPresenter = ({ summonerName,inputChange }) => (
   <>
-      <Container>
-        <Helmet>
-          <title></title>
-        </Helmet>
-        <Section title="닷지할까">
-            <div>소환사명 : {name}</div>
-            <div>소환사레벨 : {summonerLevel}</div>
-            <div>최근접속일 : {revisionDate}</div>
-          </Section>
+     <Container> 
+        <input type="text" value={summonerName} placeholder="소환사이름" onChange={inputChange} />
+        <Link to={`/search/${summonerName}`}>
+            <button>Search</button>
+        </Link>
       </Container>
   </>
 );
