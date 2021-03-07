@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 const Container = styled.div`
   :not(:last-child) {
-    margin-bottom: 50px;
+    margin-bottom: 20px;
   }
 `;
 
@@ -14,10 +14,10 @@ const Title = styled.span`
 `;
 
 const Grid = styled.div`
-  margin-top: 25px;
+  margin-top: 15px;
   display: grid;
   grid-template-columns: repeat(auto-fill);
-  grid-gap: 25px;
+  grid-gap: 10px;
 `;
 
 const Section = ({ title, children }) => (

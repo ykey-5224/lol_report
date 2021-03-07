@@ -8,7 +8,6 @@ const api = axios.create({
 
 export const lolApi = {
   test: () => api.get(`/lol/summoner/v4/summoners/by-name/판다삐`),
-  search: name =>
-  api.get(`/lol/summoner/v4/summoners/by-name/${name}`,),
-
+  searchSummoner: name => api.get(`/lol/summoner/v4/summoners/by-name/${name}`),
+  searchMatch: accountId => api.get(`/lol/match/v4/matchlists/by-account/${accountId}`)
 };
