@@ -4,9 +4,15 @@ import styled from "styled-components";
 import Helmet from "react-helmet";
 import Section from "../../Components/Section";
 import Search from "../Search";
+import Container from '@material-ui/core/Container';
+import { makeStyles } from '@material-ui/core/styles';
 
-const HomeDiv = styled.div`
-`;
+const useStyles = makeStyles((theme) => ({
+  main: {
+    backgroundColor: theme.palette.background.paper,
+    padding: theme.spacing(8, 0, 6),
+  },
+}));
 
 const HomeBody = styled.div`
   border: 1px solid black;
@@ -25,19 +31,19 @@ const SearchDiv = styled.div`
   margin-top : 10px
 `;
 
-const HomePresenter = ({ name,summonerLevel,revisionDate }) => (
+const HomePresenter = ({ name,summonerLevel,revisionDate }) => {
+  const classes = useStyles();
+  return(
   <>
-    <Helmet>
-      <title>홈화면이에요</title>
-    </Helmet>
-      <HomeDiv>
+      <Container className = {classes.main}>
       <HomeBody> 홈화면의 LOGO </HomeBody>
       <SearchDiv> 검색 영역
           <Search/>
       </SearchDiv>
-      </HomeDiv>
+      </Container>
   </>
-);
+  )
+};
 
 HomePresenter.propTypes = {
   nowPlaying: PropTypes.string,

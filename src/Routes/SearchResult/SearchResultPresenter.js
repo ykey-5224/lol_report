@@ -4,14 +4,22 @@ import styled from "styled-components";
 import Helmet from "react-helmet";
 import Section from "../../Components/Section";
 import Search from "../Search";
+import Container from '@material-ui/core/Container';
+import { makeStyles } from '@material-ui/core/styles';
 
-const Container = styled.div`
-  padding: 20px;
-`;
+const useStyles = makeStyles((theme) => ({
+  main: {
+    backgroundColor: theme.palette.background.paper,
+    padding: theme.spacing(8, 0, 6),
+  },
+}));
 
-const SearchResultPresenter = ({ name,summonerLevel,revisionDate,matches }) => (
+const SearchResultPresenter = ({ name,summonerLevel,revisionDate,matches }) => {
+  const classes = useStyles;
+
+  return(
   <>
-      <Container>
+      <Container className={classes.main}>
         <Helmet>
           <title></title>
         </Helmet>
@@ -26,7 +34,8 @@ const SearchResultPresenter = ({ name,summonerLevel,revisionDate,matches }) => (
         </Section>
       </Container>
   </>
-);
+  )
+};
 
 SearchResultPresenter.propTypes = {
   nowPlaying: PropTypes.string,
